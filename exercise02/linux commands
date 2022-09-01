@@ -1,0 +1,11 @@
+Exercise 002
+1.	Cat > filename – used to create a new file and write inside the file simultaneously
+2.	Rm “filename” – used to delete specific file
+3.	Cat filename1 filename2 > file name3 > used to join content in two separate files and copy to a new separate file.
+4.	History – gives a history of all commands used in a single session
+5.	Date – displays the current date
+6.	Uname -a – displays information about the computer system
+7.	Ping – check the connection to a server
+8.	Find – finds specific files
+9.	Rmdir – deletes a directory
+10.	Grep – helps find specific text in a document
