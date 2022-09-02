@@ -1,3 +1,4 @@
+# git config
 $ git config -l
 diff.astextplain.textconv=astextplain
 filter.lfs.clean=git-lfs clean -- %f
@@ -48,7 +49,7 @@ $ git remote -v
 origin  https://github.com/rigamortus/altschoolcloudexercises.git (fetch)
 origin  https://github.com/rigamortus/altschoolcloudexercises.git (push)
 
-##git log
+## git log
 $ git log
 commit 66ef31810ec4e7bccfb5304a31703b4beb522938 (HEAD -> main, origin/main, origin/HEAD)
 Author: Akalugo David <109105332+rigamortus@users.noreply.github.com>
