@@ -5,7 +5,7 @@
 193.16.20.39
 
 ## Number of Hosts (2^-2)
-6 per subnetcd 
+6 per subnet
 
 ## Range of IP Addresses (first and last IP addresses reserved)
 193.16.20.33 - 193.16.20.38
