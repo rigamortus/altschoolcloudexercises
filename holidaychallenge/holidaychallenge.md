@@ -22,13 +22,13 @@
 
 A VPC with IPV4 CIDR of 10.0.0.0/16 (256 IPs) was created
 
-![my_project vpc Created](vpc.jpg)
+![vpc](vpc.jpg)
 
 ## Step 2: Creation of Public and Private Subnets
 
 Two public (myproject public and public 2) and private subnets (myproject private and private 2) were created. Public CIDRs (10.0.0.0/24 and 10.0.2.0/24) and Private CIDRs (10.0.1.0/24 and 10.0.3.0/24) had 256 possible IPs each.
 
-![public and private subnets](subnet.jpg)
+![subnet](subnet.jpg)
 
 ## Step 3: Creation of Instances
 
