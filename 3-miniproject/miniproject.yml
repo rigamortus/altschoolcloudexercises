@@ -1,0 +1,78 @@
+- name: setup ansible
+  hosts: all
+  remote_user: ubuntu
+  gather_facts: false
+
+  tasks:
+  - name: update repositories
+    # shell: sudo apt update
+    become_method: sudo
+    apt:
+      update_cache: yes
+    become: yes
+
+  - name: upgrade cache
+    become_method: sudo
+    become: yes
+    apt: 
+      upgrade: yes
+
+  # - name: packages | ensure apt list dir exists
+  #   file:
+  #     path: /var/lib/apt/lists/
+  #     state: directory
+  #     mode: 0755
+  
+  - name: install apache
+    apt:
+      name: apache2
+      state: present
+    become: yes
+    become_method: sudo
+
+  - name: set timezone
+    timezone: 
+       name: Africa/Lagos
+    become: yes
+    become_method: sudo
+
+  - name: remove index.html
+    become: yes
+    file:
+      name: /var/www/html/index.html
+      state: absent
+    become_method: sudo
+  
+  - name: make static path writable
+    command: chmod -R 777 /var/www/html
+    become: yes
+    become_method: sudo 
+
+  - name: set static file for host 1
+    when: inventory_hostname in groups['server1']
+    template:
+      src: /home/vagrant/index1.html
+      dest: /var/www/html/index.html    
+   
+  - name: set static file for host 2
+    when: inventory_hostname in groups['server2']
+    template:
+      src: /home/vagrant/index2.html
+      dest: /var/www/html/index.html
+
+  - name: set static file for host 3
+    when: inventory_hostname in groups['server3']
+    template:
+      src: /home/vagrant/index3.html
+      dest: /var/www/html/index.html 
+
+  - name: set ip address and date
+    shell: echo "ip address is $(hostname -f) and date is $(date)" >> /var/www/html/index.html
+    become: yes
+    become_method: sudo
+
+  - name: restart_apache
+    shell: systemctl restart apache2
+    become_method: sudo
+    become: yes
+      
